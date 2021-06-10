@@ -71,7 +71,9 @@ def export_key(key_id: str, status: Optional[str], default: bool) -> None:
         path.write_text(key)
 
         if default:
-            path.with_stem("primary").symlink_to(path)
+            sym_path = path.with_stem("primary")
+            sym_path.unlink(missing_ok=True)
+            sym_path.symlink_to(path.relative_to(Path.cwd()))
 
 
 if __name__ == "__main__":
