@@ -6,6 +6,7 @@ will be saved to the respective folders. A symlink will be created for the defau
 import re
 import sys
 from pathlib import Path
+from shutil import copy2
 from subprocess import PIPE, Popen
 from typing import Optional
 
@@ -73,7 +74,7 @@ def export_key(key_id: str, status: Optional[str], default: bool) -> None:
         if default:
             sym_path = path.with_stem("primary")
             sym_path.unlink(missing_ok=True)
-            sym_path.symlink_to(path.relative_to(Path.cwd()))
+            copy2(path, sym_path)
 
 
 if __name__ == "__main__":
