@@ -38,10 +38,8 @@ def find_keys() -> list[tuple[str, Optional[str]], bool]:
             if key_id is None:
                 continue
 
-            if "[expired" in line:
-                status = "expired"
-            elif "[revoked" in line:
-                status = "revoked"
+            if "[expired" in line or "[revoked" in line:
+                status = "old"
             else:
                 status = None
 
