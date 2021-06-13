@@ -4,6 +4,6 @@
 
 Please note that keys provided here **may be outdated**. The most actual keys can be pulled from `hkps://keys.openpgp.org`.
 
-## License
+## Licence
 
 CC0-1.0 © 2021 Nikita Karamov
